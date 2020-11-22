@@ -1,7 +1,7 @@
 import { createImage } from './utils/utils.js'
 
 
-
+// Tu sobie robimy playera
 let playerA = {
   hp: 20,
   image: null
@@ -24,16 +24,23 @@ async function startGame({layer, stage}) {
 
   // Tworzymy obrazek
   const myTankImage = await createImage({
+    // pozycja obrazka
     x: 200,
     y: 50,
+    // wielkosc obrazka
     width: 100,
     height: 100
   }, tankImageUrl)
+
+  // przypisujemy obrazek do playera
   playerA.image = myTankImage
+
   // Dodajemy nasz obrazek na plansze
   layer.add(myTankImage)
 }
 
+
+// tu sobie robimy obsluge klawiszy
 addEventListener('keydown', ({ key }) => {
   const x = playerA.image.x()
   const y = playerA.image.y()
@@ -51,7 +58,6 @@ addEventListener('keydown', ({ key }) => {
       playerA.image.x( x + 100 )
       break
   }
-  console.log(playerA.image)
 })
 
 export { startGame, gameTick }
