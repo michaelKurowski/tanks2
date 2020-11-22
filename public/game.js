@@ -7,17 +7,18 @@ let playerA = {
   image: null
 }
 
-async function gameTick({layer, stage}) {
   /*
-    To jest nasza petla, odpala sie co 10ms
+    Ta funkcja odpala sie co 10ms. to jest nasza glowna petla gry, mozna tu np. napisac pociskom by sie przesuwaly.
   */
+async function gameTick({layer, stage}) {
+
 }
 
-
-async function startGame({layer, stage}) {
   /*
-    Ten kod odpala sie na poczatku gry
+    Ta funkcja odpala sie na poczatku gry
   */
+async function startGame({layer, stage}) {
+
 
   const tankImageUrl = 
   'https://previews.123rf.com/images/yummytime/yummytime1609/yummytime160900630/62111150-tank-icon-on-white-background-created-for-mobile-web-decor-print-products-applications-icon-isolated.jpg'
