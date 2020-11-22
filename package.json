@@ -1,0 +1,14 @@
+{
+  "name": "tanks",
+  "version": "1.0.0",
+  "description": "After downloading project with git, use `npm install`, to install all files. Afterwards run `npm start` to start the game.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
