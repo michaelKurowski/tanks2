@@ -13,13 +13,13 @@ const config = {
       preload: preload,
       create: create
   }
-};
+}
 
-let game = new Phaser.Game(config);
+let game = new Phaser.Game(config)
 
 function preload () {
-    this.load.setBaseURL('http://localhost:3200');
-    this.load.image('tank', 'assets/tank.png');
+    this.load.setBaseURL('http://localhost:3200')
+    this.load.image('tank', 'assets/tank.png')
 }
 
 
@@ -28,9 +28,9 @@ let tank
 
 
 function create () {
-    tank = this.physics.add.image(30, 30, 'tank');
-    tank.setVelocity(0, 0);
-    tank.setCollideWorldBounds(true);
+    tank = this.physics.add.image(30, 30, 'tank')
+    tank.setVelocity(0, 0)
+    tank.setCollideWorldBounds(true)
 }
 
 
@@ -58,5 +58,6 @@ addEventListener('keyup', ({ key }) => {
     case 's':
     case 'd':
       tank.setVelocity(0, 0)
+      break
   }
 })
