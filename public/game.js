@@ -1,64 +1,62 @@
-import { createImage } from './utils/utils.js'
 
+const config = {
+  type: Phaser.AUTO,
+  width: 800,
+  height: 600,
+  physics: {
+      default: 'arcade',
+      arcade: {
+          gravity: { y: 0 }
+      }
+  },
+  scene: {
+      preload: preload,
+      create: create
+  }
+};
 
-// Tu sobie robimy playera
-let playerA = {
-  hp: 20,
-  image: null
-}
+let game = new Phaser.Game(config);
 
-  /*
-    Ta funkcja odpala sie co 10ms. to jest nasza glowna petla gry, mozna tu np. napisac pociskom by sie przesuwaly.
-  */
-async function gameTick({layer, stage}) {
-
-}
-
-  /*
-    Ta funkcja odpala sie na poczatku gry
-  */
-async function startGame({layer, stage}) {
-
-
-  const tankImageUrl = 
-  'https://previews.123rf.com/images/yummytime/yummytime1609/yummytime160900630/62111150-tank-icon-on-white-background-created-for-mobile-web-decor-print-products-applications-icon-isolated.jpg'
-
-  // Tworzymy obrazek
-  const myTankImage = await createImage({
-    // pozycja obrazka
-    x: 200,
-    y: 50,
-    // wielkosc obrazka
-    width: 100,
-    height: 100
-  }, tankImageUrl)
-
-  // przypisujemy obrazek do playera
-  playerA.image = myTankImage
-
-  // Dodajemy nasz obrazek na plansze
-  layer.add(myTankImage)
+function preload () {
+    this.load.setBaseURL('http://localhost:3200');
+    this.load.image('tank', 'assets/tank.png');
 }
 
 
-// tu sobie robimy obsluge klawiszy
+
+let tank 
+
+
+function create () {
+    tank = this.physics.add.image(30, 30, 'tank');
+    tank.setVelocity(0, 0);
+    tank.setCollideWorldBounds(true);
+}
+
+
 addEventListener('keydown', ({ key }) => {
-  const x = playerA.image.x()
-  const y = playerA.image.y()
   switch(key) {
     case 'a':
-      playerA.image.x( x - 100 )
+      tank.setVelocity(-90, 0)
       break
     case 'w':
-      playerA.image.y( y - 100 )
+      tank.setVelocity(0, -90)
       break
     case 's':
-      playerA.image.y( y + 100 )
+      tank.setVelocity(0, 90)
       break
     case 'd':
-      playerA.image.x( x + 100 )
+      
+      tank.setVelocity(90, 0)
       break
   }
 })
-
-export { startGame, gameTick }
+addEventListener('keyup', ({ key }) => {
+  switch(key) {
+    case 'a':
+    case 'w':
+    case 's':
+    case 'd':
+      tank.setVelocity(0, 0)
+  }
+})
