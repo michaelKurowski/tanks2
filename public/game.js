@@ -46,7 +46,7 @@ addEventListener('keydown', ({ key }) => {
       tank.setVelocity(0, 90)
       break
     case 'd':
-      
+      tank.setRotation(Math.PI / 2)
       tank.setVelocity(90, 0)
       break
   }
