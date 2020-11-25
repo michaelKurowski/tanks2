@@ -37,12 +37,15 @@ function create () {
 addEventListener('keydown', ({ key }) => {
   switch(key) {
     case 'a':
+      tank.setAngle(-90)
       tank.setVelocity(-90, 0)
       break
     case 'w':
+      tank.setAngle(0)
       tank.setVelocity(0, -90)
       break
     case 's':
+      tank.setAngle(180)
       tank.setVelocity(0, 90)
       break
     case 'd':
